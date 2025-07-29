@@ -274,3 +274,12 @@ https://bepsa-back-pt-3555266126.southamerica-east1.run.app
 Hay una colección de POSTMAN para realizar las pruebas de manera directa.
 
 File: `./PruebaTecnica.postman_collection.json`
+
+## SITIO WEB:
+
+Para realizar una prueba visual de algunas funcionalidades, entrar aquí:
+https://bepsapt.web.app
+
+![Foto de mi GitHub](https://avatars.githubusercontent.com/u/75756594?v=4)
+
+Guillermo Paiva.
