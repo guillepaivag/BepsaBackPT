@@ -219,3 +219,9 @@ X-API-KEY: <tu_api_key>
 **Response:**
 - Código 204 No Content
 
+## Base URL en remoto:
+
+**BaseURL:** https://bepsa-back-pt-3555266126.southamerica-east1.run.app
+
+**Documentación:** https://bepsa-back-pt-3555266126.southamerica-east1.run.app/api#/Tareas/TaskController_create
+
