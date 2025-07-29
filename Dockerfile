@@ -7,6 +7,7 @@ FROM node:20-alpine AS base
 FROM base AS builder
   RUN npm install --omit=optional --audit=false --fund=false
   COPY . .
+  RUN npx prisma generate
   RUN npm run build
 
 FROM builder AS runner
