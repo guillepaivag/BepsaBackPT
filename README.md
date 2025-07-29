@@ -223,5 +223,5 @@ X-API-KEY: <tu_api_key>
 
 **BaseURL:** https://bepsa-back-pt-3555266126.southamerica-east1.run.app
 
-**Documentación:** https://bepsa-back-pt-3555266126.southamerica-east1.run.app/api#/Tareas/TaskController_create
+**Documentación:** https://bepsa-back-pt-3555266126.southamerica-east1.run.app/documentacion
 
