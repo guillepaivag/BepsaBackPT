@@ -264,6 +264,13 @@ X-API-KEY: <tu_api_key>
 
 Este proyecto tiene ci/cd con github, puede visualizarse en la carpta `.github/workflows/cicd.yaml`.
 
-Cuando se sube cambios a la rama `main` entonces las nuevas funcionalidades se verán reflejadas en el servidor de Cloud Run.
+Cuando se sube cambios a la rama `main` entonces las nuevas funcionalidades se verán reflejadas en el servidor de **Cloud Run**.
 
 https://bepsa-back-pt-3555266126.southamerica-east1.run.app
+
+
+## POSTMAN:
+
+Hay una colección de POSTMAN para realizar las pruebas de manera directa.
+
+File: `./PruebaTecnica.postman_collection.json`
