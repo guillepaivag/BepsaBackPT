@@ -1,4 +1,4 @@
-FROM node:18.12-alpine3.16 AS base
+FROM node:20-alpine AS base
   WORKDIR /app
   ENV HOST 0.0.0.0
   COPY package*.json ./
