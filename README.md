@@ -16,15 +16,15 @@ npm install -g @nestjs/cli
 
 1. **Clonar el repositorio:**
    ```sh
-   git clone https://github.com/guillepaivag/bepsa-back-pt.git
-   cd bepsa-back-pt
+   git clone https://github.com/guillepaivag/BepsaBackPT.git
+   cd BepsaBackPT
    ```
 
     o
 
    ```sh
-   git clone git@github.com:guillepaivag/bepsa-back-pt.git
-   cd bepsa-back-pt
+   git clone git@github.com:guillepaivag/BepsaBackPT.git
+   cd BepsaBackPT
    ```
 
 2. **Instalar dependencias:**
