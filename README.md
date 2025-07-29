@@ -3,8 +3,8 @@
 
 ## Requisitos previos
 
-- Node.js >= 18
-- npm >= 9
+- Node.js > 18
+- npm > 9
 - Docker (opcional, para base de datos)
 
 ### Instalar NestJS CLI (si no lo tienes)
@@ -40,6 +40,8 @@ npm install -g @nestjs/cli
    VALIDATE_APIKEY_IN_DB="false"
    ```
 
+   NOTA: Si la variable de entorno VALIDATE_APIKEY_IN_DB es "false", entonces solo acepta la api-key de API_KEY, pero si es "true" solo acepta las varialbes de entorno en la base de datos.
+
 4. **(Opcional) Levantar base de datos con Docker:**
    ```sh
    docker-compose up -d
@@ -53,7 +55,39 @@ npm install -g @nestjs/cli
    npx prisma generate
    ```
 
-6. **Agregar datos de API keys a la base de datos:**
+6. **Agregar datos a la DB:**
+
+   Inicializa tabla task:
+   ```sql
+   -- CreateEnum
+    CREATE TYPE "TaskStatus" AS ENUM ('PENDIENTE', 'EN_PROGRESO', 'COMPLETADA');
+
+    CREATE TABLE task(
+        id SERIAL NOT NULL,
+        titulo text NOT NULL,
+        descripcion text,
+        "fechaCreacion" timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "fechaVencimiento" timestamp without time zone,
+        estado "TaskStatus" NOT NULL DEFAULT 'PENDIENTE'::"TaskStatus",
+        "createdAt" timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" timestamp without time zone NOT NULL,
+        PRIMARY KEY(id)
+    );
+   ```
+
+   Inicializa tabla apikey:
+   ```sql
+    CREATE TABLE apikey(
+      id SERIAL NOT NULL,
+      nombre text NOT NULL,
+      valor text,
+      activo boolean NOT NULL DEFAULT true,
+      "createdAt" timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      "updatedAt" timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY(id)
+    );
+   ```
+
    Con la base de datos corriendo, ejecuta este SQL (puedes usar `psql` o alguna herramienta gráfica):
    ```sql
    INSERT INTO apikey (nombre, valor, activo, "createdAt", "updatedAt") VALUES
@@ -225,3 +259,18 @@ X-API-KEY: <tu_api_key>
 
 **Documentación:** https://bepsa-back-pt-3555266126.southamerica-east1.run.app/documentacion
 
+
+## CICD:
+
+Este proyecto tiene ci/cd con github, puede visualizarse en la carpta `.github/workflows/cicd.yaml`.
+
+Cuando se sube cambios a la rama `main` entonces las nuevas funcionalidades se verán reflejadas en el servidor de **Cloud Run**.
+
+https://bepsa-back-pt-3555266126.southamerica-east1.run.app
+
+
+## POSTMAN:
+
+Hay una colección de POSTMAN para realizar las pruebas de manera directa.
+
+File: `./PruebaTecnica.postman_collection.json`
