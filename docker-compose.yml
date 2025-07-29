@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: bepsa_back_pt_postgres
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - bepsa_back_pt_postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=bepsa_back_pt
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d bepsa_back_pt"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  bepsa_back_pt_postgres_data:
